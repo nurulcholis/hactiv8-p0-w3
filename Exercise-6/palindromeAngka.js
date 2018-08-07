@@ -1,0 +1,3 @@
+function palindromeNumber(num){
+    
+}
