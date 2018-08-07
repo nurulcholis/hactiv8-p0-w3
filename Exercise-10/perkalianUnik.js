@@ -1,32 +1,20 @@
-// function selection(arr){
-//     for(var i = 0; i < arr.length-1; i++){
-//         var index = i;
-//         for(var j = i + 1; j < arr.length; j++){
-//             if(arr[j] < arr[index]) {
-//                 index = j;
-//             }
-//         }
-  
-//         var smallest = arr[index];
-//         arr[index] = arr[i];
-//         arr[i] = smallest;
-//     }
-//     return arr;
-//   }
-
-
 function perkalianUnik(arr){
-  var list = [];
-  for (var i = 0; i < arr.length; i++){
-    for( var j = 0; j < arr.length; j++){
+  var temp = [];
+  for(var i = 0; i < arr.length; i++){
+    var times = 1;
+    for(var j = 0; j < arr.length; j++){
       if(i !== j){
-        if(arr[i] !== arr[j]){
-          list.push(arr[i]);
-        }
+        times *= arr[j];
       }
     }
+    temp.push(times);
   }
-  return list;
+  return temp;
 }
 
-console.log(perkalianUnik([1,2,3,4]));
+// TEST CASES
+console.log(perkalianUnik([2, 4, 6])); // [24, 12, 8]
+console.log(perkalianUnik([1, 2, 3, 4, 5])); // [120, 60, 40, 30, 24]
+console.log(perkalianUnik([1, 4, 3, 2, 5])); // [120, 30, 40, 60, 24]
+console.log(perkalianUnik([1, 3, 3, 1])); // [9, 3, 3, 9]
+console.log(perkalianUnik([2, 1, 8, 10, 2])); // [160, 320, 40, 32, 160]
