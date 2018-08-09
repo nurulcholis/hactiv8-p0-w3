@@ -1,10 +1,10 @@
 function tentukanDeretGeometri(arr) {
     // you can only write your code here!
+            count++;
+        }
     var count = 0;
     for(var i = 0; i < arr.length; i++){
         if(arr[i+1] % arr[i] === 0){
-            count++;
-        }
     }
     if(count === arr.length - 1){
         return true;

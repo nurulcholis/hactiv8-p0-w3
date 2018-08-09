@@ -7,12 +7,15 @@ function pasanganTerbesar(num){
             break;
         }
         temp += str[i] + str[i+1];
+        console.log(temp);
         list.push(temp);
+        console.log(list);
     }
     var result = list.sort(function(a,b){
         return b-a;
     });
-    return parseInt(result);
+    //return parseInt(result);
 }
 
-console.log(pasanganTerbesar(641573));
+//console.log(pasanganTerbesar(641573));
+pasanganTerbesar(641573)

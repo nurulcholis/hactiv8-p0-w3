@@ -6,7 +6,7 @@
 // If both numbers are same, print "palindrome number"
 // Else print "not palindrome number"
 function angkaPalindrome(num){
-  for(var i = 0; i < num; i++){
+    for(var i = 0; i < num; i++){
       num++;
       var changeString = String(num);
       var bantu = '';
@@ -16,7 +16,7 @@ function angkaPalindrome(num){
       if(changeString == bantu){
         return num;
       }
-  }    
+    }    
 }
 
   // TEST CASES
