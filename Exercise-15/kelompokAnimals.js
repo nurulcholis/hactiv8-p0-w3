@@ -1,53 +1,34 @@
-/*
- *  NOTE: 
- *  if(animals[i+1] === undefined){
- *    group = animals[i];
- *  }else{
- *    group = animals[i] + ' & ' + animals[i+1];
- *  } 
- * 
- */
+function groupAnimals(animals) {
+  // you can only write your code here!
+  var group_abjad = [];
+  var group_huruf = [];
 
-var animals = ['ayam','bebek','bangau','kucing','anjing','kelinci','cicak'];
-var submain = [];
-var main = [];
-// setelah diurutkan
-animals.sort();
-// loop sejumlah data
-for(var i = 0; i < animals.length; i++){
-  // buat variabel tampung nilai awal 'huruf'
-  var temp = animals[i][0];
-  // cek panjang dari array submain dan
-  // cek index pd nilai awal
-  // jika panjang 0 atau tdk ditemukan indeks
-  if(submain.length === 0 || submain.indexOf(temp) === -1){
-    // kirim data ke submain yg isinya nilai awal diatas
-    submain.push(temp);
-    // kirim data ke main yg isinya nilai dari index awal / 0
-    main.push([animals[i]]);
-  }else{
-    // kondisi dimana nilai indeks 0 pd main sudah ada
-    // mengisi nilai selanjutnya dari 1 s.d selesai
-    var index = submain.indexOf(temp);
-    main[index].push(animals[i]);
+  for(var i = 0; i < animals.length; i++){
+    var cek = false;
+    for(var j = 0; j < group_abjad.length; j++){
+      if(group_abjad[j] === animals[i][0]){
+        cek = true;
+      }
+    }
+    if(cek === false){
+      group_abjad.push(animals[i][0]);
+    }
   }
 
+  for(var i = 0; i < group_abjad.length; i++){
+    group_huruf.push([]);
+    for(var j = 0; j < animals.length; j++){
+      if(group_abjad[i] === animals[j][0]){
+        group_huruf[i].push(animals[j]);
+      }
+    }
+  }
+  group_huruf.sort();
+  return group_huruf;
 }
 
-console.log(main);
-
-
-// for(var i = 0; i < animals.length; i++){
-//   for(var j = 0; j < animals.length; j++){
-//     if(i !== j){
-//       if(animals[i]){
-        
-//       }
-//     }
-//   }
-// }
-
-
-
-//console.log(temp.length);
-
+// TEST CASES
+console.log(groupAnimals(['cacing', 'ayam', 'kuda', 'anoa', 'kancil']));
+// [ ['ayam', 'anoa'], ['cacing'], ['kuda', 'kancil'] ]
+console.log(groupAnimals(['cacing', 'ayam', 'kuda', 'anoa', 'kancil', 'unta', 'cicak' ]));
+// [ ['ayam', 'anoa'], ['cacing', 'cicak'], ['kuda'], ['unta'] ]
